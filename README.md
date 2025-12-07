@@ -7,3 +7,8 @@ Hi, this is a personal hobby project which aims to;
 - 🔐 **that will remain encryped**
 - 🚪 **is only accessible through this browser applicaiton**
 - 🎞️ **The media can be viewed filtered and can be easily imported or exported**
+- 🔺 **The UI will be similar to Netflix**
+
+**Many thanks,**  
+**– Vipinlal P**
+
