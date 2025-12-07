@@ -1,0 +1,107 @@
+############################
+# Global
+############################
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+############################
+# Python / FastAPI (uv)
+############################
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# uv cache
+.uv/
+.uv-cache/
+
+# PyInstaller
+*.spec
+
+# Test reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+
+# Local environment files
+.env
+.env.*
+
+
+############################
+# Node / React (Vite)
+############################
+
+# Dependencies
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+
+# Local environment settings
+frontend/.env
+frontend/.env.*
+
+# Vite cache
+frontend/.vite/
+.vite/
+
+
+############################
+# OS-specific junk
+############################
+
+# macOS
+._*
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.nfs*
+
+
+############################
+# Editor configs
+############################
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+
+# Vim / Neovim
+*.swp
+*.swo
+Session.vim
+
+# Emacs
+*.elc
+*~
+
