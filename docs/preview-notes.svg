@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08111c" />
+      <stop offset="100%" stop-color="#04070f" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="980" fill="url(#bg)" />
+  <rect x="24" y="24" width="1552" height="932" rx="32" fill="#101826" stroke="#243146" />
+  <rect x="44" y="44" width="936" height="892" rx="30" fill="#0b111c" stroke="#243146" />
+  <rect x="1004" y="44" width="552" height="892" rx="30" fill="#0b111c" stroke="#243146" />
+  <rect x="88" y="88" width="848" height="430" rx="24" fill="#172132" stroke="#243146" />
+  <rect x="88" y="548" width="400" height="330" rx="24" fill="#101826" stroke="#243146" />
+  <rect x="512" y="548" width="424" height="330" rx="24" fill="#101826" stroke="#243146" />
+  <rect x="1038" y="96" width="484" height="230" rx="24" fill="#101826" stroke="#243146" />
+  <rect x="1038" y="352" width="484" height="230" rx="24" fill="#101826" stroke="#243146" />
+  <rect x="1038" y="608" width="484" height="230" rx="24" fill="#101826" stroke="#243146" />
+  <text x="1082" y="150" fill="#ffffff" font-size="34" font-family="Arial">Notebook panel</text>
+  <text x="1082" y="194" fill="#9baccc" font-size="20" font-family="Arial">Markdown notes, tags, and export actions</text>
+  <text x="132" y="642" fill="#ffffff" font-size="28" font-family="Arial">Metadata editor</text>
+  <text x="556" y="642" fill="#ffffff" font-size="28" font-family="Arial">Rendered markdown preview</text>
+</svg>

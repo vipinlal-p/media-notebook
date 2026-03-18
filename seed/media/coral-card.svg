@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140e13"/>
+      <stop offset="50%" stop-color="#391d24"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <circle cx="690" cy="240" r="180" fill="#ff8e72" opacity="0.45"/>
+  <circle cx="200" cy="850" r="250" fill="#4fd1a1" opacity="0.18"/>
+  <text x="78" y="176" fill="#ffece5" font-family="Arial" font-size="28" letter-spacing="8">DEMO IMAGE</text>
+  <text x="78" y="320" fill="#fff" font-family="Arial" font-size="86" font-weight="700">Coral Memo</text>
+  <text x="78" y="408" fill="#e6cfc8" font-family="Arial" font-size="28">A poster-style sample for grid thumbnails and notes.</text>
+</svg>

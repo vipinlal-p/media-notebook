@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08111c" />
+      <stop offset="50%" stop-color="#122036" />
+      <stop offset="100%" stop-color="#ff5b38" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1200" fill="url(#bg)" />
+  <circle cx="610" cy="220" r="140" fill="#4fd1a1" opacity="0.18" />
+  <circle cx="180" cy="360" r="220" fill="#ffffff" opacity="0.06" />
+  <rect x="86" y="110" width="182" height="44" rx="22" fill="#4fd1a1" />
+  <text x="177" y="139" fill="#07121d" font-size="22" font-family="Arial" text-anchor="middle">SEED FILE</text>
+  <text x="80" y="760" fill="#ffffff" font-size="96" font-family="Arial">Poster</text>
+  <text x="80" y="852" fill="#dde7ff" font-size="96" font-family="Arial">Preview</text>
+  <text x="80" y="940" fill="#c6d4f6" font-size="30" font-family="Arial">Import this SVG to test image handling</text>
+</svg>

@@ -1,107 +1,34 @@
-############################
-# Global
-############################
-*.log
-*.tmp
-.DS_Store
-Thumbs.db
-
-############################
-# Python / FastAPI (uv)
-############################
-
-# Virtual environments
-.venv/
-venv/
-env/
-ENV/
-
-# Byte-compiled / optimized files
-__pycache__/
-*.py[cod]
-*.class
-
-# Distribution / packaging
-build/
+node_modules/
 dist/
-*.egg-info/
-.eggs/
-
-# uv cache
-.uv/
-.uv-cache/
-
-# PyInstaller
-*.spec
-
-# Test reports
-htmlcov/
-.coverage
-.coverage.*
-.cache
-pytest_cache/
-
-# Local environment files
+build/
+coverage/
+.vite/
+.cache/
 .env
 .env.*
+*.log
+*.tmp
+*.tsbuildinfo
+*.tgz
 
-
-############################
-# Node / React (Vite)
-############################
-
-# Dependencies
-frontend/node_modules/
-
-# Build output
 frontend/dist/
+backend/dist/
+release/
+out/
 
-# Local environment settings
-frontend/.env
-frontend/.env.*
-
-# Vite cache
-frontend/.vite/
-.vite/
-
-
-############################
-# OS-specific junk
-############################
-
-# macOS
-._*
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows
 Thumbs.db
-ehthumbs.db
 Desktop.ini
-
-# Linux
+._*
 *~
 .nfs*
 
-
-############################
-# Editor configs
-############################
-
-# VSCode
+.idea/
 .vscode/
 *.code-workspace
-
-# JetBrains IDEs
-.idea/
-
-# Vim / Neovim
 *.swp
 *.swo
 Session.vim
+.Rhistory
 
-# Emacs
-*.elc
-*~
-
+vault-data/

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b3a6f" />
+      <stop offset="45%" stop-color="#f46b45" />
+      <stop offset="100%" stop-color="#0c1220" />
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#sky)" />
+  <circle cx="1180" cy="180" r="86" fill="#fff4cf" opacity="0.94" />
+  <path d="M0 680 C160 620 280 640 420 580 C560 520 700 560 860 480 C1010 406 1180 422 1440 320 L1440 900 L0 900 Z" fill="#0d1d2f" />
+  <path d="M0 740 C200 680 340 720 520 660 C690 604 850 620 1020 562 C1170 510 1280 518 1440 470 L1440 900 L0 900 Z" fill="#142943" />
+  <text x="80" y="770" fill="#f8f4ff" font-size="68" font-family="Arial">Media Notebook Seed</text>
+  <text x="80" y="830" fill="#d9e4ff" font-size="28" font-family="Arial">Sample image for local encrypted import testing</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08111c" />
+      <stop offset="100%" stop-color="#04070f" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="980" fill="url(#bg)" />
+  <rect x="24" y="24" width="280" height="932" rx="32" fill="#101826" stroke="#243146" />
+  <rect x="326" y="24" width="826" height="932" rx="32" fill="#101826" stroke="#243146" />
+  <rect x="1174" y="24" width="402" height="932" rx="32" fill="#101826" stroke="#243146" />
+  <text x="66" y="88" fill="#ff8158" font-size="18" font-family="Arial">VIPINLAL P</text>
+  <text x="66" y="132" fill="#ffffff" font-size="40" font-family="Arial">Media Notebook</text>
+  <rect x="66" y="186" width="196" height="46" rx="23" fill="#ff5b38" />
+  <text x="108" y="215" fill="#09111c" font-size="18" font-family="Arial">Collections</text>
+  <rect x="356" y="54" width="300" height="52" rx="26" fill="#09111d" stroke="#243146" />
+  <rect x="676" y="54" width="140" height="52" rx="26" fill="#09111d" stroke="#243146" />
+  <rect x="834" y="54" width="160" height="52" rx="26" fill="#09111d" stroke="#243146" />
+  <rect x="1014" y="54" width="108" height="52" rx="26" fill="#ff5b38" />
+  <g fill="#172132" stroke="#243146">
+    <rect x="356" y="150" width="236" height="236" rx="24" />
+    <rect x="610" y="150" width="236" height="236" rx="24" />
+    <rect x="864" y="150" width="236" height="236" rx="24" />
+    <rect x="356" y="408" width="236" height="236" rx="24" />
+    <rect x="610" y="408" width="236" height="236" rx="24" />
+    <rect x="864" y="408" width="236" height="236" rx="24" />
+  </g>
+  <text x="1206" y="90" fill="#ff8158" font-size="18" font-family="Arial">PREVIEW</text>
+  <rect x="1206" y="120" width="338" height="224" rx="28" fill="#0b111c" stroke="#243146" />
+  <rect x="1206" y="366" width="338" height="130" rx="24" fill="#0b111c" stroke="#243146" />
+  <rect x="1206" y="520" width="338" height="186" rx="24" fill="#0b111c" stroke="#243146" />
+  <text x="390" y="306" fill="#e8efff" font-size="28" font-family="Arial">Encrypted grid layout</text>
+  <text x="390" y="340" fill="#95a3c3" font-size="18" font-family="Arial">Mock screenshot for README and release assets</text>
+</svg>

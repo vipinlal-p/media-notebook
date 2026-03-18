@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="960" viewBox="0 0 1600 960">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080d16"/>
+      <stop offset="100%" stop-color="#03060c"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b1020"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="960" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1520" height="880" rx="40" fill="#0b111b" stroke="#1d2638"/>
+  <rect x="72" y="72" width="300" height="816" rx="32" fill="#111827"/>
+  <text x="108" y="140" fill="#ff8e72" font-family="Arial" font-size="20" letter-spacing="7">VIPINLAL P</text>
+  <text x="108" y="208" fill="#ffffff" font-family="Arial" font-size="46" font-weight="700">Media Notebook</text>
+  <rect x="108" y="284" width="228" height="62" rx="20" fill="#ff5b38"/>
+  <text x="222" y="323" text-anchor="middle" fill="#08101a" font-family="Arial" font-size="24" font-weight="700">Collections</text>
+  <rect x="404" y="72" width="1116" height="112" rx="28" fill="#111827"/>
+  <rect x="436" y="104" width="460" height="48" rx="18" fill="#090d18" stroke="#243047"/>
+  <rect x="918" y="104" width="160" height="48" rx="18" fill="#090d18" stroke="#243047"/>
+  <rect x="1098" y="104" width="160" height="48" rx="18" fill="#090d18" stroke="#243047"/>
+  <rect x="1278" y="104" width="210" height="48" rx="18" fill="#ff5b38"/>
+  <text x="468" y="135" fill="#64748b" font-family="Arial" font-size="18">Search filename, tags, notes...</text>
+  <text x="998" y="135" text-anchor="middle" fill="#cbd5e1" font-family="Arial" font-size="18">All types</text>
+  <text x="1178" y="135" text-anchor="middle" fill="#cbd5e1" font-family="Arial" font-size="18">Newest</text>
+  <text x="1383" y="135" text-anchor="middle" fill="#08101a" font-family="Arial" font-size="18" font-weight="700">Import media</text>
+  <rect x="404" y="208" width="648" height="680" rx="32" fill="#111827"/>
+  <rect x="1080" y="208" width="440" height="680" rx="32" fill="#111827"/>
+  <rect x="436" y="254" width="280" height="208" rx="24" fill="url(#card)"/>
+  <rect x="748" y="254" width="272" height="208" rx="24" fill="url(#card)"/>
+  <rect x="436" y="494" width="280" height="208" rx="24" fill="url(#card)"/>
+  <rect x="748" y="494" width="272" height="208" rx="24" fill="url(#card)"/>
+  <rect x="1112" y="252" width="376" height="250" rx="24" fill="#090d18" stroke="#243047"/>
+  <rect x="1112" y="532" width="180" height="320" rx="24" fill="#090d18" stroke="#243047"/>
+  <rect x="1308" y="532" width="180" height="320" rx="24" fill="#090d18" stroke="#243047"/>
+  <text x="452" y="742" fill="#8aa0be" font-family="Arial" font-size="20">Encrypted grid, search, tags, notes, previews</text>
+  <text x="1112" y="830" fill="#8aa0be" font-family="Arial" font-size="20">Notebook + markdown preview</text>
+</svg>

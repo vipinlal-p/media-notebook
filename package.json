@@ -1,0 +1,70 @@
+{
+  "name": "media-notebook",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Secure local-first desktop media organizer with notebook annotations.",
+  "author": "Vipinlal P <vipinlal.p@example.com>",
+  "main": "backend/dist/backend/src/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:frontend\" \"npm:dev:electron\"",
+    "dev:frontend": "vite --config frontend/vite.config.ts",
+    "dev:electron": "wait-on tcp:5173 && npm run build:backend && electron .",
+    "build": "npm run lint && npm run test && npm run build:frontend && npm run build:backend",
+    "build:frontend": "vite build --config frontend/vite.config.ts",
+    "build:backend": "tsc -p backend/tsconfig.json",
+    "start": "electron .",
+    "lint": "eslint .",
+    "test": "npm run build:backend && node --test backend/dist/backend/src/tests/**/*.test.js",
+    "package": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1",
+    "electron-log": "^5.4.1",
+    "jimp": "^1.6.0",
+    "marked": "^16.4.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
+    "electron": "^37.6.0",
+    "electron-builder": "^26.0.12",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^3.4.17",
+    "typescript-eslint": "^8.46.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7",
+    "wait-on": "^8.0.5"
+  },
+  "build": {
+    "appId": "com.vipinlal.media-notebook",
+    "productName": "Media Notebook",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "backend/dist/**/*",
+      "frontend/dist/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    }
+  }
+}

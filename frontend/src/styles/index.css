@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: "Manrope", ui-sans-serif, system-ui;
+  background: #070b14;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 91, 56, 0.18), transparent 24%),
+    radial-gradient(circle at top right, rgba(79, 209, 161, 0.12), transparent 22%),
+    linear-gradient(180deg, #090d18 0%, #060811 50%, #05070d 100%);
+  color: #f8fafc;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: #fff;
+}
+
+.prose p,
+.prose li,
+.prose strong,
+.prose em,
+.prose code {
+  color: #d8deec;
+}
+
+.prose ul {
+  padding-left: 1.25rem;
+}
