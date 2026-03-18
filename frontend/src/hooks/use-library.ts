@@ -1,4 +1,4 @@
-import { startTransition, useDeferredValue, useEffect, useState } from 'react'
+import { startTransition, useCallback, useDeferredValue, useEffect, useState } from 'react'
 
 import type { MediaFilters, MediaItem, PreviewPayload, VaultStatus } from '@shared/contracts'
 
@@ -27,7 +27,7 @@ export const useLibrary = () => {
     setVaultStatus(status)
   }
 
-  const refreshMedia = async (nextFilters = filters): Promise<void> => {
+  const refreshMedia = useCallback(async (nextFilters: MediaFilters): Promise<void> => {
     if (!vaultStatus?.unlocked) {
       setMedia([])
       setSelectedId(null)
@@ -42,7 +42,7 @@ export const useLibrary = () => {
       setMedia(items)
       setSelectedId((current) => (current && items.some((item) => item.id === current) ? current : items[0]?.id ?? null))
     })
-  }
+  }, [deferredQuery, vaultStatus?.unlocked])
 
   useEffect(() => {
     void (async () => {
@@ -61,8 +61,11 @@ export const useLibrary = () => {
     if (!vaultStatus?.unlocked) {
       return
     }
-    void refreshMedia(filters)
-  }, [deferredQuery, filters.collection, filters.favoriteOnly, filters.sort, filters.type, vaultStatus?.unlocked])
+    void refreshMedia({
+      ...filters,
+      query: deferredQuery,
+    })
+  }, [deferredQuery, filters, refreshMedia, vaultStatus?.unlocked])
 
   useEffect(() => {
     if (!selectedId || !vaultStatus?.unlocked) {
@@ -100,7 +103,10 @@ export const useLibrary = () => {
     try {
       const status = await window.mediaNotebook.unlockVault(password)
       setVaultStatus(status)
-      await refreshMedia(filters)
+      await refreshMedia({
+        ...filters,
+        query: deferredQuery,
+      })
     } catch (caughtError) {
       setError(caughtError instanceof Error ? caughtError.message : 'Unable to unlock vault')
       throw caughtError
@@ -125,7 +131,10 @@ export const useLibrary = () => {
     try {
       await window.mediaNotebook.importFiles(filePaths)
       await refreshStatus()
-      await refreshMedia(filters)
+      await refreshMedia({
+        ...filters,
+        query: deferredQuery,
+      })
     } finally {
       setBusy(false)
     }
@@ -151,7 +160,10 @@ export const useLibrary = () => {
     try {
       await window.mediaNotebook.deleteMedia(id)
       await refreshStatus()
-      await refreshMedia(filters)
+      await refreshMedia({
+        ...filters,
+        query: deferredQuery,
+      })
     } finally {
       setBusy(false)
     }

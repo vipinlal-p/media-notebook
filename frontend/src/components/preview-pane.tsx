@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import { marked } from 'marked'
 
@@ -16,15 +16,9 @@ interface PreviewPaneProps {
 }
 
 export const PreviewPane = ({ item, preview, onUpdate, onSaveNote, onExport, onDelete }: PreviewPaneProps) => {
-  const [tagInput, setTagInput] = useState('')
-  const [collectionInput, setCollectionInput] = useState('')
-  const [noteDraft, setNoteDraft] = useState('')
-
-  useEffect(() => {
-    setTagInput(item?.tags.join(', ') ?? '')
-    setCollectionInput(item?.collection ?? 'Inbox')
-    setNoteDraft(item?.noteMarkdown ?? '')
-  }, [item])
+  const [tagInput, setTagInput] = useState(() => item?.tags.join(', ') ?? '')
+  const [collectionInput, setCollectionInput] = useState(() => item?.collection ?? 'Inbox')
+  const [noteDraft, setNoteDraft] = useState(() => item?.noteMarkdown ?? '')
 
   const renderer = useMemo(() => {
     const nextRenderer = new marked.Renderer()

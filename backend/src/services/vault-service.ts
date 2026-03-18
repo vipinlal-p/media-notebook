@@ -24,14 +24,20 @@ import { SettingsService } from './settings-service'
 import { ThumbnailService } from './thumbnail-service'
 
 export class VaultService {
+  public static async create(appPaths: AppPaths): Promise<VaultService> {
+    const db = await MediaDatabase.create(appPaths.databasePath)
+    return new VaultService(appPaths, db)
+  }
+
   private key: Buffer | null = null
 
-  private readonly db: MediaDatabase
   private readonly settings: SettingsService
   private readonly thumbnails: ThumbnailService
 
-  public constructor(private readonly appPaths: AppPaths) {
-    this.db = new MediaDatabase(appPaths.databasePath)
+  private constructor(
+    private readonly appPaths: AppPaths,
+    private readonly db: MediaDatabase,
+  ) {
     this.settings = new SettingsService(appPaths)
     this.thumbnails = new ThumbnailService(appPaths.thumbnailDir, appPaths.previewDir)
     this.clearPreviewCache()
@@ -73,12 +79,12 @@ export class VaultService {
   }
 
   public listMedia(filters: MediaFilters): MediaItem[] {
-    this.assertUnlocked()
+    this.requireKey()
     return this.db.listMedia(filters)
   }
 
   public async importFiles(filePaths: string[]): Promise<ImportMediaResult> {
-    this.assertUnlocked()
+    const key = this.requireKey()
     const imported: MediaItem[] = []
     const skipped: string[] = []
 
@@ -98,9 +104,9 @@ export class VaultService {
 
         const id = createId()
         const encryptedPath = path.join(this.appPaths.mediaDir, `${id}.bin`)
-        const thumbnailPath = await this.thumbnails.createThumbnail(id, filePath, type, path.basename(filePath), this.key as Buffer)
+        const thumbnailPath = await this.thumbnails.createThumbnail(id, filePath, type, path.basename(filePath), key)
 
-        await encryptFile(filePath, encryptedPath, this.key as Buffer)
+        await encryptFile(filePath, encryptedPath, key)
 
         const timestamp = nowIso()
         const item: Omit<MediaItem, 'noteMarkdown'> = {
@@ -140,7 +146,7 @@ export class VaultService {
   }
 
   public async exportMedia(id: string): Promise<string | null> {
-    this.assertUnlocked()
+    const key = this.requireKey()
     const item = this.db.getMedia(id)
     if (!item) {
       throw new Error('Media item not found')
@@ -152,12 +158,12 @@ export class VaultService {
     if (result.canceled || !result.filePath) {
       return null
     }
-    await decryptFile(item.path, result.filePath, this.key as Buffer)
+    await decryptFile(item.path, result.filePath, key)
     return result.filePath
   }
 
   public async getThumbnail(id: string): Promise<PreviewPayload> {
-    this.assertUnlocked()
+    const key = this.requireKey()
     const item = this.db.getMedia(id)
     if (!item) {
       throw new Error('Media item not found')
@@ -165,7 +171,7 @@ export class VaultService {
 
     const thumbnailPath = item.thumbnailPath
     const outputPath = thumbnailPath
-      ? await this.thumbnails.materializeThumbnail(id, thumbnailPath, item.filename, item.type, this.key as Buffer)
+      ? await this.thumbnails.materializeThumbnail(id, thumbnailPath, item.filename, item.type, key)
       : path.join(this.appPaths.previewDir, `thumb-${id}.svg`)
 
     return {
@@ -176,14 +182,14 @@ export class VaultService {
   }
 
   public async getPreview(id: string): Promise<PreviewPayload> {
-    this.assertUnlocked()
+    const key = this.requireKey()
     const item = this.db.getMedia(id)
     if (!item) {
       throw new Error('Media item not found')
     }
     const previewPath = path.join(this.appPaths.previewDir, `${id}${path.extname(item.filename)}`)
     if (!fs.existsSync(previewPath)) {
-      await decryptFile(item.path, previewPath, this.key as Buffer)
+      await decryptFile(item.path, previewPath, key)
     }
     return {
       url: pathToFileURL(previewPath).toString(),
@@ -193,17 +199,17 @@ export class VaultService {
   }
 
   public updateMedia(id: string, input: UpdateMediaInput): MediaItem {
-    this.assertUnlocked()
+    this.requireKey()
     return this.db.updateMedia(id, input)
   }
 
   public saveNote(id: string, markdown: string): MediaItem {
-    this.assertUnlocked()
+    this.requireKey()
     return this.db.saveNote(id, markdown)
   }
 
   public async deleteMedia(id: string): Promise<void> {
-    this.assertUnlocked()
+    this.requireKey()
     const item = this.db.deleteMedia(id)
     if (!item) {
       return
@@ -232,9 +238,10 @@ export class VaultService {
     fs.mkdirSync(this.appPaths.previewDir, { recursive: true })
   }
 
-  private assertUnlocked(): asserts this is this & { key: Buffer } {
+  private requireKey(): Buffer {
     if (!this.key) {
       throw new Error('Vault is locked')
     }
+    return this.key
   }
 }

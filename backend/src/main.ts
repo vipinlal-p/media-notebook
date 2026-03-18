@@ -38,7 +38,7 @@ const createWindow = async (): Promise<void> => {
 }
 
 app.whenReady().then(async () => {
-  vaultService = new VaultService(resolveAppPaths())
+  vaultService = await VaultService.create(resolveAppPaths())
 
   ipcMain.handle('vault:status', () => vaultService.getStatus())
   ipcMain.handle('vault:initialize', (_event, password: string) => vaultService.initialize(password))

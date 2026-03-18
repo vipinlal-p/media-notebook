@@ -6,7 +6,7 @@ const tseslint = require('typescript-eslint')
 
 module.exports = tseslint.config(
   {
-    ignores: ['frontend/dist/**', 'backend/dist/**', 'node_modules/**', 'release/**'],
+    ignores: ['frontend/dist/**', 'backend/dist/**', 'node_modules/**', 'release/**', '*.cjs', 'eslint.config.js'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -14,7 +14,7 @@ module.exports = tseslint.config(
     files: ['frontend/**/*.{ts,tsx}', 'shared/**/*.ts'],
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        project: ['./tsconfig.eslint.json'],
         tsconfigRootDir: __dirname,
       },
       globals: {
@@ -31,10 +31,10 @@ module.exports = tseslint.config(
     },
   },
   {
-    files: ['backend/**/*.ts'],
+    files: ['backend/**/*.ts', 'frontend/vite.config.ts'],
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        project: ['./tsconfig.eslint.json'],
         tsconfigRootDir: __dirname,
       },
       globals: {

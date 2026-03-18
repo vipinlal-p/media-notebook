@@ -1,15 +1,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { Jimp } from 'jimp'
-
 import type { MediaType } from '../../../shared/contracts'
 import { decryptBuffer, encryptBuffer } from '../utils/crypto'
 
 const escapeHtml = (value: string): string =>
   value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
 
-const imageMime = 'image/jpeg'
+const imageMime = 'image/svg+xml'
 
 export class ThumbnailService {
   public constructor(
@@ -50,16 +48,7 @@ export class ThumbnailService {
   }
 
   private async buildThumbnailPayload(sourcePath: string, type: MediaType, title: string): Promise<Buffer> {
-    if (type === 'image') {
-      try {
-        const image = await Jimp.read(sourcePath)
-        image.cover({ w: 480, h: 270 })
-        return await image.getBuffer(imageMime)
-      } catch {
-        return this.buildPlaceholderPayload(type, title)
-      }
-    }
-
+    void sourcePath
     return this.buildPlaceholderPayload(type, title)
   }
 

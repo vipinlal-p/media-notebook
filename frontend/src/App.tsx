@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import type { AppShellState } from '@shared/contracts'
 
@@ -34,7 +34,6 @@ export const App = () => {
   } = useLibrary()
   const [shell, setShell] = useState<AppShellState>({ view: 'collections', layout: 'grid' })
   const [dragging, setDragging] = useState(false)
-  const [notice, setNotice] = useState<string | null>(null)
 
   const collections = useMemo(() => Array.from(new Set(media.map((item) => item.collection))).sort(), [media])
   const tags = useMemo(() => Array.from(new Set(media.flatMap((item) => item.tags))).sort(), [media])
@@ -42,21 +41,6 @@ export const App = () => {
     () => (shell.view === 'favorites' || filters.favoriteOnly ? media.filter((item) => item.favorite) : media),
     [filters.favoriteOnly, media, shell.view],
   )
-
-  useEffect(() => {
-    if (!error) {
-      return
-    }
-    setNotice(error)
-  }, [error])
-
-  useEffect(() => {
-    if (!notice) {
-      return
-    }
-    const timeout = window.setTimeout(() => setNotice(null), 3200)
-    return () => window.clearTimeout(timeout)
-  }, [notice])
 
   if (loading || !vaultStatus) {
     return <div className="flex min-h-screen items-center justify-center bg-canvas text-slate-300">Loading secure workspace...</div>
@@ -133,6 +117,7 @@ export const App = () => {
                 onSelect={setSelectedId}
               />
               <PreviewPane
+                key={selectedItem?.id ?? 'empty'}
                 item={selectedItem}
                 preview={preview}
                 onUpdate={updateMedia}
@@ -147,9 +132,9 @@ export const App = () => {
         </main>
       </div>
 
-      {notice && (
+      {error && (
         <div className="fixed bottom-5 right-5 z-[60] rounded-2xl border border-red-500/30 bg-red-950/85 px-4 py-3 text-sm text-red-100 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-          {notice}
+          {error}
         </div>
       )}
     </div>
