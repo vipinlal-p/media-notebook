@@ -1,34 +1,23 @@
-node_modules/
-dist/
-build/
-coverage/
-.vite/
-.cache/
-.env
-.env.*
+# Dependencies
+/node_modules
+
+# Build artifacts
+/dist
+/release
+
+# Logs
 *.log
-*.tmp
-*.tsbuildinfo
-*.tgz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-frontend/dist/
-backend/dist/
-release/
-out/
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
+# OS-specific
 .DS_Store
 Thumbs.db
-Desktop.ini
-._*
-*~
-.nfs*
-
-.idea/
-.vscode/
-*.code-workspace
-*.swp
-*.swo
-Session.vim
-.Rhistory
-
-vault-data/
